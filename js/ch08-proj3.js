@@ -32,6 +32,9 @@ function CompanyCard(company) {
    };
 
    CompanyCard.prototype.outputCard = function () {
+
+      const day50Formatted = this.billions(this.day50);
+      const day200Formatted = this.billions(this.day200);
       const marketCap50Formatted = this.billions(this.marketCap50);
       const marketCap200Formatted = this.billions(this.marketCap200);
       const revenueFormatted = this.billions(this.revenue);
@@ -43,12 +46,12 @@ function CompanyCard(company) {
          <article class="card">
                <h2>${this.symbol} - ${this.name}</h2>
                <div>
-                 <p>Share Price (50day avg): <span>$182.26</span></p>
-                 <p>Share Price (200day avg): <span>$190.30</span></p>
-                 <p>Market Cap (50day avg): <span>$859,406,932,800.00</span></p>
-                 <p>Market Cap (200day avg): <span>$897,317,784,000.00</span></p>
-                 <p>Net Revenue: <span>$32,031,000,000.00</span></p>
-                 <p>Shareholder Equity: <span>$117,892,000,000.00</span></p>
+                 <p>Share Price (50day avg): <span>${day50Formatted}</span></p>
+                 <p>Share Price (200day avg): <span>${day200Formatted}</span></p>
+                 <p>Market Cap (50day avg): <span>${marketCap50Formatted}</span></p>
+                 <p>Market Cap (200day avg): <span>${marketCap200Formatted}</span></p>
+                 <p>Net Revenue: <span>${revenueFormatted}</span></p>
+                 <p>Shareholder Equity: <span>${equityFormatted}</span></p>
                </div>
                <footer>
                   ${this.tags.length > 0 ? this.tags.map(tag => (`<small>${tag}</small>`)) : ''}
