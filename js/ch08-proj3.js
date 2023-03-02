@@ -41,7 +41,7 @@ function CompanyCard(company) {
 
       return `
          <article class="card">
-               <h2>AAPL - Apple Inc.</h2>
+               <h2>${this.symbol} - ${this.name}</h2>
                <div>
                  <p>Share Price (50day avg): <span>$182.26</span></p>
                  <p>Share Price (200day avg): <span>$190.30</span></p>
@@ -51,9 +51,7 @@ function CompanyCard(company) {
                  <p>Shareholder Equity: <span>$117,892,000,000.00</span></p>
                </div>
                <footer>
-                   <small>Technology</small> 
-                   <small>Consumer Electronics</small>
-                   <small>Computer Hardware</small>
+                  ${this.tags.length > 0 ? this.tags.map(tag => (`<small>${tag}</small>`)) : ''}
                </footer>
             </article>
   `;
